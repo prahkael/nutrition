@@ -11,3 +11,5 @@ export interface nutritionProfile {
   eatsPerDay: string,
   vegetarian: string
 }
+
+// *****************************************************************************

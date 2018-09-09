@@ -43,14 +43,20 @@ export class UserProfileComponent {
   // ***************************************************************************
   // Public properties
   // ***************************************************************************
-
+  
   profileForm    : FormGroup;
-
+  
+  // ***************************************************************************
+  
   selectMen      : string   = GENDER_MALE;
   selectWomen    : string   = GENDER_FEMALE;
-
+  
+  // ***************************************************************************
+  
   valuesEatPerDay: string[] = EAT_PER_DAY;
-
+  
+  // ***************************************************************************
+  
   user           : User;
 
   // ***************************************************************************
@@ -60,7 +66,7 @@ export class UserProfileComponent {
   // ***************************************************************************
   // Public methods
   // ***************************************************************************
-
+  
   constructor(
     private _user               : UserService,
     private _alertMessageService: AlertMessageService
@@ -73,13 +79,15 @@ export class UserProfileComponent {
       height   : new FormControl(),
       eatPerDay: new FormControl('0')
     });
-
+    
     this._user.getUserById(this._user.getAuthUserId()).subscribe(user => {
       this.user = new User(user);
       this.profileForm.patchValue(user);
     });
   }
-
+  
+  // ***************************************************************************
+  
   onSubmit() {
     const user = { ...this.user, ...this.profileForm.value };
     this._user.updateUser(user, this._user.getAuthUserId()).subscribe();

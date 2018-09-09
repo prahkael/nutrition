@@ -13,10 +13,10 @@ export const NUTRITUIN_WOMAN = 'female';
 // *****************************************************************************
 
 export function calculateEnergyTurnover(weight, tall, age, sex) {
-
+  
   let result : number = 0;
   let value  : number;
-
+  
   switch(sex) {
     case NUTRITUIN_MAN  : {
       result  = parseFloat((66.47 + (13.7 * weight) + (5 * tall) - (6.8 * age)).toFixed(2));
@@ -27,6 +27,8 @@ export function calculateEnergyTurnover(weight, tall, age, sex) {
       break;
     }
   }
-
+  
   return result;
 }
+
+// *****************************************************************************

@@ -9,6 +9,7 @@ import { Component }                from '@angular/core';
 import { FormGroup }                from '@angular/forms';
 import { FormControl }              from '@angular/forms';
 
+// *****************************************************************************
 
 import { Router }                   from '@angular/router';
 
@@ -16,6 +17,7 @@ import { Router }                   from '@angular/router';
 
 import { UserService }              from '../../user/user.service';
 
+// *****************************************************************************
 
 import { LoginResult }              from '../../user/user';
 
@@ -49,7 +51,7 @@ export class AuthUserComponent {
   // ***************************************************************************
   // Public methods
   // ***************************************************************************
-
+  
   public constructor(
     private _userService: UserService,
     private _router:      Router
@@ -58,10 +60,12 @@ export class AuthUserComponent {
       username: new FormControl(''),
       password: new FormControl('')
     });
-
+    
     this.signOut();
   }
-
+  
+  // ***************************************************************************
+  
   signIn() {
     if (this.loginForm.value.username && this.loginForm.value.password) {
       this._userService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe((result: LoginResult) => {

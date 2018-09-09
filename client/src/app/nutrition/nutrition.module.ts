@@ -14,13 +14,13 @@ import { RouterModule }              from '@angular/router';
 
 import { ReactiveFormsModule }       from '@angular/forms';
 
+// *****************************************************************************
 
 import { AuthGuard }                 from '../auth/guards/auth-guard.service';
 
 // *****************************************************************************
 
 import { NutritionStartComponent }   from './start/nutrition-start.component';
-import { fromEventPattern } from 'rxjs';
 
 // *****************************************************************************
 // Routes
@@ -54,3 +54,5 @@ const routes: Routes = [{
   providers   : []
 })
 export class NutritionModule { }
+
+// *****************************************************************************

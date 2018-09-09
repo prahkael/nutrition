@@ -49,12 +49,12 @@ export class User implements iUser {
   weight?   : string;
   height?   : string;
   eatPerDay?: string;
-
+  
   constructor(user: iUser) {
-
+    
     this.name     = user.name;
     this.password = user.password;
-
+    
     if (user.id) {
       this.id = user.id;
     }
@@ -74,5 +74,7 @@ export class User implements iUser {
       this.eatPerDay = user.eatPerDay
     }
   }
-
+  
 }
+
+// *****************************************************************************
