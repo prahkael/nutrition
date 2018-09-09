@@ -43,11 +43,6 @@ export class AlertMessageComponent {
    
   constructor(private _alertMessageService: AlertMessageService) {
     this.messageQueue$ = this._alertMessageService.getMessageQueue();
-    this._alertMessageService.getMessageQueue().subscribe(message => {
-      console.log('----------- aaaa');
-      console.log(message);
-      console.log('----------- aaaa');
-    });
   }
 
    // ***************************************************************************
