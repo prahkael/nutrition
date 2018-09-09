@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 // *****************************************************************************
 
 /**
- * Class of the .
+ * Class of the NavbarComponent.
  *
  * @class
  * @author Thomas Fuchs <thomas.fuchs@net-designer.net>
