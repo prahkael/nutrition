@@ -1,0 +1,62 @@
+<div class="container">
+
+  <div class="bd-callout bd-callout-info">
+    <h4 id="associating-help-text-with-form-controls">Hier können Sie Ihr Profil verwalten.</h4>
+  </div>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group row">
+      <label for="name" class="col-2 col-form-label">Name</label>
+      <div class="col-10">
+        <input class="form-control" type="text" value="" id="name" formControlName="name">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="age" class="col-2 col-form-label">Alter</label>
+      <div class="col-10">
+        <input class="form-control" type="text" value="" id="age" formControlName="age">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="sex" class="col-2 col-form-label">Geschlecht</label>
+      <div class="col-10">
+        <select id="sex" formControlName="sex" class="form-control">
+          <option value="{{ selectMen }}">Männlich</option>
+          <option value="{{ selectWomen }}">Weiblich</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="weight" class="col-2 col-form-label">Gewicht</label>
+      <div class="col-10">
+        <input class="form-control" type="text" value="" id="weight" formControlName="weight">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="height" class="col-2 col-form-label">Körpergröße in cm</label>
+      <div class="col-10">
+        <input class="form-control" type="text" value="" id="height" formControlName="height">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="eatsPerDay" class="col-2 col-form-label">Anzahl Essen pro Tag</label>
+      <div class="col-10">
+        <select id="eatsPerDay" formControlName="eatPerDay" class="form-control">
+          <option *ngFor="let message of valuesEatPerDay; let i = index" value="{{ i }}">{{ message }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary">Speichern</button>
+      </div>
+    </div>
+  </form>
+</div>

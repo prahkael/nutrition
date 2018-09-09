@@ -1,16 +1,65 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+// *****************************************************************************
+// Import
+// *****************************************************************************
 
-import { AppComponent } from './app.component';
+import { BrowserModule }             from '@angular/platform-browser';
+import { NgModule }                  from '@angular/core';
+
+// *****************************************************************************
+
+import { Routes }                    from '@angular/router';
+import { RouterModule }              from '@angular/router';
+
+// *****************************************************************************
+
+import { AppComponent }              from './app.component';
+import { NavbarComponent }           from './tools/navbar/navbar.component';
+import { HomeComponent }             from './home/home.component';
+
+// *****************************************************************************
+
+import { NutritionModule }           from './nutrition/nutrition.module';
+import { UserModule }                from './user/user.module';
+
+
+import { AuthGuard }                 from './auth/guards/auth-guard.service';
+
+// *****************************************************************************
+// Routes
+// *****************************************************************************
+
+const route: Routes = [{
+  path: '',
+  component: HomeComponent,
+  canActivate: [AuthGuard]
+},{
+  path: 'nutrition',
+  loadChildren: './nutrition/nutrition.module#NutritionModule',
+  canActivate: [AuthGuard]
+},{
+  path: 'user',
+  loadChildren: './user/user.module#UserModule'
+}];
+
+// *****************************************************************************
+// Module
+// *****************************************************************************
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NutritionModule,
+    UserModule,
+    RouterModule.forRoot(route)
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// *****************************************************************************

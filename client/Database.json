@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "user": [
+    {
+      "name": "Thomas Fuchs",
+      "password": "test1234",
+      "id": "1",
+      "age": "36",
+      "sex": "male",
+      "weight": "81",
+      "height": "178",
+      "eatPerDay": "4"
+    },
+    {
+      "name": "Marco Schaule",
+      "id": "enhfN60",
+      "password": "test1234",
+      "username": "mschaule"
+    }
+  ]
+}
