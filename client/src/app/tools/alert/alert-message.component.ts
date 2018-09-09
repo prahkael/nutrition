@@ -4,10 +4,16 @@
 
 import { Component }                from '@angular/core';
 
+// *****************************************************************************
+
 import { AlertMessageService }      from './alert-message.service';
 
-import { BehaviorSubject }          from 'rxjs';
+// *****************************************************************************
+
 import { Observable }               from 'rxjs';
+
+// *****************************************************************************
+
 import * as Messages                from './alert-message';
 
 // *****************************************************************************
