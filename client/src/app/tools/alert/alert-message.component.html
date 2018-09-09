@@ -1,0 +1,9 @@
+<div class="container">
+    <div 
+        *ngFor="let messageObject of messageQueue$ | async" 
+        class="alert alert-{{ messageObject.messageClass }}"
+        role="alert"
+    >
+      {{ messageObject.message }}
+    </div>
+</div>

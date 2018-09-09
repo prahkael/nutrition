@@ -12,6 +12,7 @@ import { FormControl }            from '@angular/forms';
 // *****************************************************************************
 
 import { UserService }            from '../user.service';
+import { AlertMessageService }    from '../../tools/alert/alert-message.service';
 
 // *****************************************************************************
 
@@ -60,21 +61,10 @@ export class UserProfileComponent {
   // Public methods
   // ***************************************************************************
 
-  /*
-    id?       : string,
-    name      : string,
-    password  : string,
-    age?      : string,
-    sex?      : string,
-    weight?   : string,
-    height?   : string,
-    eatPerDay?: string
-  */
-
   constructor(
-    private _user: UserService
+    private _user               : UserService,
+    private _alertMessageService: AlertMessageService
   ) {
-    console.log(this._user.getAuthUserId());
     this.profileForm = new FormGroup({
       name     : new FormControl(),
       age      : new FormControl(),
@@ -93,6 +83,7 @@ export class UserProfileComponent {
   onSubmit() {
     const user = { ...this.user, ...this.profileForm.value };
     this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
+    this._alertMessageService.addSuccessMessage('Eyjooooo, es hat geklappt');
   }
 
   // ***************************************************************************

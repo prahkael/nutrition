@@ -15,11 +15,15 @@ import { RouterModule }              from '@angular/router';
 import { AppComponent }              from './app.component';
 import { NavbarComponent }           from './tools/navbar/navbar.component';
 import { HomeComponent }             from './home/home.component';
+import { AlertMessageComponent }     from './tools/alert/alert-message.component';
 
 // *****************************************************************************
 
 import { NutritionModule }           from './nutrition/nutrition.module';
 import { UserModule }                from './user/user.module';
+
+
+import { AlertMessageService }       from './tools/alert/alert-message.service';
 
 
 import { AuthGuard }                 from './auth/guards/auth-guard.service';
@@ -49,7 +53,8 @@ const route: Routes = [{
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    AlertMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,10 @@ const route: Routes = [{
     UserModule,
     RouterModule.forRoot(route)
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    AlertMessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
