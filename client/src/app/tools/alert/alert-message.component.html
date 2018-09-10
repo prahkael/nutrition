@@ -1,9 +1,10 @@
 <div class="container">
-    <div 
-        *ngFor="let messageObject of messageQueue$ | async" 
-        class="alert alert-{{ messageObject.messageClass }}"
-        role="alert"
-    >
-      {{ messageObject.message }}
+    <div *ngFor="let messageObject of messageQueue$ | async"> 
+        <div class="alert alert-{{ messageObject.messageClass }}" role="alert">
+            <button aria-label="Close" class="close" type="button" (click)="closeMessage($event)">
+                <span aria-hidden="true">×</span>
+            </button>
+            {{ messageObject.message }}
+        </div>
     </div>
 </div>

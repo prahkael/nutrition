@@ -108,9 +108,11 @@ export class UserProfileComponent {
     if (this.profileForm.get('eatPerDay').errors) {
       this._alertMessageService.addMessage('danger', 'Bitte geben Sie an, wie oft am Tag Sie essen möchten');
     }
-    // const user = { ...this.user, ...this.profileForm.value };
-    // this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
-    // this._alertMessageService.addSuccessMessage('Eyjooooo, es hat geklappt');
+    if (this.profileForm.valid) {
+      const user = { ...this.user, ...this.profileForm.value };
+      this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
+      this._alertMessageService.addMessage('success', 'Profil wurde erfolgreich gespeichert');
+    }
   }
 
   // ***************************************************************************

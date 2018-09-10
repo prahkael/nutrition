@@ -3,6 +3,7 @@
 // *****************************************************************************
 
 import { Component }                from '@angular/core';
+import { ElementRef }               from '@angular/core';
 
 // *****************************************************************************
 
@@ -51,6 +52,10 @@ export class AlertMessageComponent {
     private _alertMessageService: AlertMessageService
   ) {
     this.messageQueue$ = this._alertMessageService.getMessageQueue();
+  }
+
+  closeMessage(event: any) {
+    event.target.parentElement.parentElement.remove()
   }
 
    // ***************************************************************************
