@@ -27,6 +27,7 @@ import { AuthUserComponent }         from '../auth/user/auth-user.component';
 
 import { UserService }               from './user.service';
 
+// *****************************************************************************
 
 import { AuthGuard }                 from '../auth/guards/auth-guard.service';
 

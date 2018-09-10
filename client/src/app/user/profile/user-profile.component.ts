@@ -8,6 +8,7 @@ import { Component }              from '@angular/core';
 
 import { FormGroup }              from '@angular/forms';
 import { FormControl }            from '@angular/forms';
+import { Validators }             from '@angular/forms';
 
 // *****************************************************************************
 
@@ -72,12 +73,12 @@ export class UserProfileComponent {
     private _alertMessageService: AlertMessageService
   ) {
     this.profileForm = new FormGroup({
-      name     : new FormControl(),
-      age      : new FormControl(),
-      sex      : new FormControl(this.selectMen),
-      weight   : new FormControl(),
-      height   : new FormControl(),
-      eatPerDay: new FormControl('0')
+      name     : new FormControl('', [Validators.required]),
+      age      : new FormControl('', [Validators.required]),
+      sex      : new FormControl(this.selectMen, [Validators.required]),
+      weight   : new FormControl('', [Validators.required]),
+      height   : new FormControl('', [Validators.required]),
+      eatPerDay: new FormControl('0', [Validators.required])
     });
     
     this._user.getUserById(this._user.getAuthUserId()).subscribe(user => {
@@ -89,9 +90,27 @@ export class UserProfileComponent {
   // ***************************************************************************
   
   onSubmit() {
-    const user = { ...this.user, ...this.profileForm.value };
-    this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
-    this._alertMessageService.addSuccessMessage('Eyjooooo, es hat geklappt');
+    if (this.profileForm.get('name').errors) {
+      this._alertMessageService.addMessage('danger', 'Der Name muss ausgefüllt sein');
+    }
+    if (this.profileForm.get('age').errors) {
+      this._alertMessageService.addMessage('danger', 'Das Alter muss ausgefüllt sein');
+    }
+    if (this.profileForm.get('sex').errors) {
+      this._alertMessageService.addMessage('danger', 'Bitte wählen Sie ein Geschlecht aus');
+    }
+    if (this.profileForm.get('weight').errors) {
+      this._alertMessageService.addMessage('danger', 'Das Gewicht muss angegeben sein');
+    }
+    if (this.profileForm.get('height').errors) {
+      this._alertMessageService.addMessage('danger', 'Die Größe muss angegeben sein');
+    }
+    if (this.profileForm.get('eatPerDay').errors) {
+      this._alertMessageService.addMessage('danger', 'Bitte geben Sie an, wie oft am Tag Sie essen möchten');
+    }
+    // const user = { ...this.user, ...this.profileForm.value };
+    // this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
+    // this._alertMessageService.addSuccessMessage('Eyjooooo, es hat geklappt');
   }
 
   // ***************************************************************************

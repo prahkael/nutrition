@@ -47,7 +47,9 @@ export class AlertMessageComponent {
    // Public methods
    // ***************************************************************************
    
-  constructor(private _alertMessageService: AlertMessageService) {
+  constructor(
+    private _alertMessageService: AlertMessageService
+  ) {
     this.messageQueue$ = this._alertMessageService.getMessageQueue();
   }
 

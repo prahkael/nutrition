@@ -9,21 +9,21 @@
     <div class="form-group row">
       <label for="name" class="col-lg-2 col-12 col-form-label">Name</label>
       <div class="col-lg-10 col-12">
-        <input class="form-control" type="text" value="" id="name" formControlName="name">
+        <input class="form-control" type="text" value="" id="name" formControlName="name" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label for="age" class="col-lg-2 col-12 col-form-label">Alter</label>
       <div class="col-lg-10 col-12">
-        <input class="form-control" type="text" value="" id="age" formControlName="age">
+        <input class="form-control" type="text" value="" id="age" formControlName="age" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label for="sex" class="col-lg-2 col-12 col-form-label">Geschlecht</label>
       <div class="col-lg-10 col-12">
-        <select id="sex" formControlName="sex" class="form-control">
+        <select id="sex" formControlName="sex" class="form-control" required>
           <option value="{{ selectMen }}">Männlich</option>
           <option value="{{ selectWomen }}">Weiblich</option>
         </select>
@@ -33,21 +33,21 @@
     <div class="form-group row">
       <label for="weight" class="col-lg-2 col-12 col-form-label">Gewicht</label>
       <div class="col-lg-10 col-12">
-        <input class="form-control" type="text" value="" id="weight" formControlName="weight">
+        <input class="form-control" type="text" value="" id="weight" formControlName="weight" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label for="height" class="col-lg-2 col-12 col-form-label">Körpergröße in cm</label>
       <div class="col-lg-10 col-12">
-        <input class="form-control" type="text" value="" id="height" formControlName="height">
+        <input class="form-control" type="text" value="" id="height" formControlName="height" required>
       </div>
     </div>
 
     <div class="form-group row">
       <label for="eatsPerDay" class="col-lg-2 col-12 col-form-label">Anzahl Essen pro Tag</label>
       <div class="col-lg-10 col-12">
-        <select id="eatsPerDay" formControlName="eatPerDay" class="form-control">
+        <select id="eatsPerDay" formControlName="eatPerDay" class="form-control" required>
           <option *ngFor="let message of valuesEatPerDay; let i = index" value="{{ i }}">{{ message }}</option>
         </select>
       </div>
