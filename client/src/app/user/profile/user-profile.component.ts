@@ -90,28 +90,32 @@ export class UserProfileComponent {
   // ***************************************************************************
   
   onSubmit() {
-    if (this.profileForm.get('name').errors) {
-      this._alertMessageService.addMessage('danger', 'Der Name muss ausgefüllt sein');
-    }
-    if (this.profileForm.get('age').errors) {
-      this._alertMessageService.addMessage('danger', 'Das Alter muss ausgefüllt sein');
-    }
-    if (this.profileForm.get('sex').errors) {
-      this._alertMessageService.addMessage('danger', 'Bitte wählen Sie ein Geschlecht aus');
-    }
-    if (this.profileForm.get('weight').errors) {
-      this._alertMessageService.addMessage('danger', 'Das Gewicht muss angegeben sein');
-    }
-    if (this.profileForm.get('height').errors) {
-      this._alertMessageService.addMessage('danger', 'Die Größe muss angegeben sein');
-    }
-    if (this.profileForm.get('eatPerDay').errors) {
-      this._alertMessageService.addMessage('danger', 'Bitte geben Sie an, wie oft am Tag Sie essen möchten');
-    }
-    if (this.profileForm.valid) {
-      const user = { ...this.user, ...this.profileForm.value };
-      this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
-      this._alertMessageService.addMessage('success', 'Profil wurde erfolgreich gespeichert');
+    if (!this.profileForm.pristine) {
+      if (this.profileForm.get('name').errors) {
+        this._alertMessageService.addMessage('danger', 'Der Name muss ausgefüllt sein');
+      }
+      if (this.profileForm.get('age').errors) {
+        this._alertMessageService.addMessage('danger', 'Das Alter muss ausgefüllt sein');
+      }
+      if (this.profileForm.get('sex').errors) {
+        this._alertMessageService.addMessage('danger', 'Bitte wählen Sie ein Geschlecht aus');
+      }
+      if (this.profileForm.get('weight').errors) {
+        this._alertMessageService.addMessage('danger', 'Das Gewicht muss angegeben sein');
+      }
+      if (this.profileForm.get('height').errors) {
+        this._alertMessageService.addMessage('danger', 'Die Größe muss angegeben sein');
+      }
+      if (this.profileForm.get('eatPerDay').errors) {
+        this._alertMessageService.addMessage('danger', 'Bitte geben Sie an, wie oft am Tag Sie essen möchten');
+      }
+      if (this.profileForm.valid) {
+        const user = { ...this.user, ...this.profileForm.value };
+        this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
+        this._alertMessageService.addMessage('success', 'Profil wurde erfolgreich gespeichert');
+      }
+    } else {
+      this._alertMessageService.addMessage('info', 'Keine Speicherung. Daten wurden nicht verändert');
     }
   }
 
