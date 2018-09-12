@@ -14,6 +14,7 @@ import { RouterModule }              from '@angular/router';
 
 import { AppComponent }              from './app.component';
 import { NavbarComponent }           from './tools/navbar/navbar.component';
+import { SidebarComponent }          from './tools/sidebar/sidebar.component';
 import { HomeComponent }             from './home/home.component';
 import { AlertMessageComponent }     from './tools/alert/alert-message.component';
 
@@ -53,6 +54,7 @@ const route: Routes = [{
   declarations: [
     AppComponent,
     NavbarComponent,
+    SidebarComponent,
     HomeComponent,
     AlertMessageComponent
   ],

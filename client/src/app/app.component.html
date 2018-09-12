@@ -1,5 +1,14 @@
 <nutrition-navbar></nutrition-navbar>
-<nutrition-alert-message></nutrition-alert-message>
-<main role="main">
-  <router-outlet></router-outlet>
-</main>
+<div id="wrapper" class="active">
+  <div id="sidebar-wrapper" class="bg-dark">
+    <nutrition-sidebar></nutrition-sidebar>
+  </div>
+
+  <div id="page-content-wrapper">
+    <div class="container">
+      <nutrition-alert-message></nutrition-alert-message>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

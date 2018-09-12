@@ -1,82 +1,74 @@
-<div class="container">
+<h2 id="help-text">Einen Individuellen Plan erstellen!</h2>
 
-  <h2 id="help-text">Einen Individuellen Plan erstellen!</h2>
+<p>
+  Um Ihnen einen Plan erstellen zu können, benötigen wir noch einige Angaben:
+</p>
+
+<div class="bd-callout bd-callout-info">
+  <h4 id="associating-help-text-with-form-controls">Beachten Sie bitte:</h4>
 
   <p>
-      Um Ihnen einen Plan erstellen zu können, benötigen wir noch einige Angaben:
+    Alle Daten werden streng vertraulich behandelt und dienen nur dem Zweck ihnen einen Plan zu erstellen.
   </p>
+</div>
 
-  <div class="bd-callout bd-callout-info">
-    <h4 id="associating-help-text-with-form-controls">Beachten Sie bitte:</h4>
+<form [formGroup]="nutritionForm" (ngSubmit)="onSubmit()">
 
-    <p>
-      Alle Daten werden streng vertraulich behandelt und dienen nur dem Zweck ihnen einen Plan zu erstellen.
-    </p>
+  <div class="form-group row">
+    <label for="name" class="col-lg-2 col-12 col-form-label">Name</label>
+    <div class="col-lg-10 col-12">
+      <input class="form-control" type="text" value="" id="name" formControlName="name" required>
+    </div>
   </div>
 
-  <form [formGroup]="nutritionForm" (ngSubmit)="onSubmit()">
-
-    <div class="form-group row">
-      <label for="age" class="col-2 col-form-label">Alter</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" id="age" formControlName="age">
-      </div>
+  <div class="form-group row">
+    <label for="age" class="col-lg-2 col-12 col-form-label">Alter</label>
+    <div class="col-lg-10 col-12">
+      <input class="form-control" type="text" value="" id="age" formControlName="age" required>
     </div>
-
-    <div class="form-group row">
-      <label for="sex" class="col-2 col-form-label">Geschlecht</label>
-      <div class="col-10">
-        <select id="sex" formControlName="sex" class="form-control">
-          <option value="{{ selectMen }}">Männlich</option>
-          <option value="{{ selectWomen }}">Weiblich</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="weight" class="col-2 col-form-label">Gewicht</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" id="weight" formControlName="weight">
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="height" class="col-2 col-form-label">Körpergröße in cm</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" id="height" formControlName="height">
-      </div>
-    </div>
-
-    <div class="form-group row"> 
-      <label for="eatsPerDay" class="col-2 col-form-label">Anzahl Essen pro Tag</label>
-      <div class="col-10">
-        <select id="eatsPerDay" formControlName="eatsPerDay" class="form-control">
-          <option value="1">3x täglich</option>
-          <option value="2">4x täglich</option>
-          <option value="3">5x täglich</option>
-          <option value="4">6x täglich</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="vegetarian" class="col-2 col-form-label">Vegetarier</label>
-      <div class="col-10">
-        <select id="vegetarian" formControlName="vegetarian" class="form-control">
-          <option value="1">Nein</option>
-          <option value="2">Ja</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">Berechnen</button>
-      </div>
-    </div>
-  </form>
-  <div *ngIf="hasCalcResult">
-    <h3>Ergebnis:</h3>
-    <p>Ihr Grundumsatz beträgt {{ calcResult }}.</p>
   </div>
+
+  <div class="form-group row">
+    <label for="sex" class="col-lg-2 col-12 col-form-label">Geschlecht</label>
+    <div class="col-lg-10 col-12">
+      <select id="sex" formControlName="sex" class="form-control" required>
+        <option value="{{ selectMen }}">Männlich</option>
+        <option value="{{ selectWomen }}">Weiblich</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="weight" class="col-lg-2 col-12 col-form-label">Gewicht</label>
+    <div class="col-lg-10 col-12">
+      <input class="form-control" type="text" value="" id="weight" formControlName="weight" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="height" class="col-lg-2 col-12 col-form-label">Körpergröße in cm</label>
+    <div class="col-lg-10 col-12">
+      <input class="form-control" type="text" value="" id="height" formControlName="height" required>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="eatsPerDay" class="col-lg-2 col-12 col-form-label">Anzahl Essen pro Tag</label>
+    <div class="col-lg-10 col-12">
+      <select id="eatsPerDay" formControlName="eatPerDay" class="form-control" required>
+        <option *ngFor="let message of valuesEatPerDay; let i = index" value="{{ i }}">{{ message }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary col-12 col-lg-2">Speichern</button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="hasCalcResult">
+  <h3>Ergebnis:</h3>
+  <p>Ihr Grundumsatz beträgt {{ calcResult }}.</p>
 </div>

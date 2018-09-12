@@ -69,7 +69,7 @@ export class UserProfileComponent {
   // ***************************************************************************
   
   constructor(
-    private _user               : UserService,
+    private _userService        : UserService,
     private _alertMessageService: AlertMessageService
   ) {
     this.profileForm = new FormGroup({
@@ -81,7 +81,7 @@ export class UserProfileComponent {
       eatPerDay: new FormControl('0', [Validators.required])
     });
     
-    this._user.getUserById(this._user.getAuthUserId()).subscribe(user => {
+    this._userService.getUserById(this._userService.getAuthUserId()).subscribe(user => {
       this.user = new User(user);
       this.profileForm.patchValue(user);
     });
@@ -111,7 +111,7 @@ export class UserProfileComponent {
       }
       if (this.profileForm.valid) {
         const user = { ...this.user, ...this.profileForm.value };
-        this._user.updateUser(user, this._user.getAuthUserId()).subscribe();
+        this._userService.updateUser(user, this._userService.getAuthUserId()).subscribe();
         this._alertMessageService.addMessage('success', 'Profil wurde erfolgreich gespeichert');
       }
     } else {

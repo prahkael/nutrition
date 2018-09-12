@@ -1,17 +1,15 @@
-<header>
+<header [style.height]="isHeaderOpen ? 'auto' : '7%'">
   <div class="collapse bg-dark" id="navbarHeader" [style.display]="isHeaderOpen ? 'block' : 'none'">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">About</h4>
           <p class="text-muted text-justify">
-            Minions ipsum uuuhhh daa bappleees chasy. Uuuhhh uuuhhh daa aaaaaah jeje. 
-            Baboiii baboiii la bodaaa poulet tikka masala belloo! Jeje underweaaar belloo! Bananaaaa. 
-            Poulet tikka masala poulet tikka masala potatoooo aaaaaah baboiii. 
-            Chasy baboiii hahaha hahaha hahaha aaaaaah ti aamoo! Underweaaar. 
-            Poulet tikka masala aaaaaah butt po kass daa uuuhhh hahaha aaaaaah baboiii potatoooo. 
-            Belloo! aaaaaah me want bananaaa! Belloo! Jeje poulet tikka masala la bodaaa aaaaaah. 
-            Potatoooo tank yuuu! Chasy pepete.
+            Minions ipsum uuuhhh daa bappleees chasy. Uuuhhh uuuhhh daa aaaaaah jeje. Baboiii baboiii la bodaaa poulet tikka masala belloo!
+            Jeje underweaaar belloo! Bananaaaa. Poulet tikka masala poulet tikka masala potatoooo aaaaaah baboiii. Chasy
+            baboiii hahaha hahaha hahaha aaaaaah ti aamoo! Underweaaar. Poulet tikka masala aaaaaah butt po kass daa uuuhhh
+            hahaha aaaaaah baboiii potatoooo. Belloo! aaaaaah me want bananaaa! Belloo! Jeje poulet tikka masala la bodaaa
+            aaaaaah. Potatoooo tank yuuu! Chasy pepete.
           </p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
@@ -41,8 +39,8 @@
         </svg>
         <strong>Nutrition</strong>
       </a>
-      <button (click)="toggleHeader()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button (click)="toggleHeader()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
