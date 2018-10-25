@@ -1,41 +1,14 @@
 <ul id="sidebar_menu" class="sidebar-nav">
   <li class="sidebar-brand">
     <a id="menu-toggle">
-      Menu
-      <span id="main_icon" class="sub_icon fa fa-align-justify"></span>
+      Menü
     </a>
   </li>
 </ul>
 <ul class="sidebar-nav" id="sidebar">
-  <li>
-    <a class="active">
-      Cadastro
-      <span class="sub_icon fa fa-link"></span>
-    </a>
-  </li>
-  <ul class="sidebar-nav" id="sidebar">
-    <li>
-      <a>
-        link1
-      <span class="sub_icon fa fa-link"></span>
-      </a>
-    </li>
-    <li>
-      <a>
-        link2
-      <i class="sub_icon fa fa-link"></i>
-      </a>
-    </li>
-  </ul>
-  <li>
-    <a>
-      Consulta
-      <i class="sub_icon fa fa-link"></i>
-    </a>
-  </li>
-  <li>
-    <a>
-      Relatorio
+  <li *ngFor="let route of sidebarRoutes">
+    <a routerLink="{{ route.link }}" routerLinkActive="active">
+      {{ route.label }}
       <i class="sub_icon fa fa-link"></i>
     </a>
   </li>

@@ -5,6 +5,10 @@
 import { Component }                   from '@angular/core';
 import { ViewEncapsulation }           from '@angular/core';
 
+
+import { Router }                      from '@angular/router';
+import { ActivatedRoute }              from '@angular/router';
+
 // *****************************************************************************
 // Component
 // *****************************************************************************
@@ -17,6 +21,10 @@ import { ViewEncapsulation }           from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+
+  constructor(private _router: ActivatedRoute) {
+    console.log(this._router.snapshot);
+  }
 }
 
 // *****************************************************************************

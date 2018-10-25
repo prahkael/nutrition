@@ -1,4 +1,4 @@
-<header [style.height]="isHeaderOpen ? 'auto' : '7%'">
+<!-- <header [style.height]="isHeaderOpen ? 'auto' : '7%'">
   <div class="collapse bg-dark" id="navbarHeader" [style.display]="isHeaderOpen ? 'block' : 'none'">
     <div class="container">
       <div class="row">
@@ -45,4 +45,36 @@
       </button>
     </div>
   </div>
-</header>
+</header> -->
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button (click)="toggleHeader()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [style.display]="isHeaderOpen ? 'block' : 'none'">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/user/profile">
+          <i class="fa fa-user">
+            <!-- <span class="badge badge-danger">11</span> -->
+          </i>
+          Benutzer
+        </a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>

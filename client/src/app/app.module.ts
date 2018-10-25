@@ -13,19 +13,22 @@ import { RouterModule }              from '@angular/router';
 // *****************************************************************************
 
 import { AppComponent }              from './app.component';
+import { HomeComponent }             from './home/home.component';
+
 import { NavbarComponent }           from './tools/navbar/navbar.component';
 import { SidebarComponent }          from './tools/sidebar/sidebar.component';
-import { HomeComponent }             from './home/home.component';
 import { AlertMessageComponent }     from './tools/alert/alert-message.component';
+
+// *****************************************************************************
+
+import { AlertMessageService }       from './tools/alert/alert-message.service';
 
 // *****************************************************************************
 
 import { NutritionModule }           from './nutrition/nutrition.module';
 import { UserModule }                from './user/user.module';
 
-
-import { AlertMessageService }       from './tools/alert/alert-message.service';
-
+// *****************************************************************************
 
 import { AuthGuard }                 from './auth/guards/auth-guard.service';
 
@@ -53,9 +56,9 @@ const route: Routes = [{
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     NavbarComponent,
     SidebarComponent,
-    HomeComponent,
     AlertMessageComponent
   ],
   imports: [
@@ -70,6 +73,6 @@ const route: Routes = [{
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
 
 // *****************************************************************************

@@ -71,7 +71,7 @@ export class AuthUserComponent {
       this._userService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe((result: LoginResult) => {
         if (result.success) {
           localStorage.setItem('userId', result.id);
-          this._router.navigate(['/nutrition']);
+          this._router.navigate(['/']);
         }
       });
     }
