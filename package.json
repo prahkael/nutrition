@@ -1,1 +1,7 @@
-
+{
+  "private": true,
+  "version": "1.0.0",
+  "name": "nutrition",
+  "description": "The Nutrition.",
+  "license": "SEE LICENSE IN LICENSE.md"
+}
